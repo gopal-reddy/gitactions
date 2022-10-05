@@ -10,4 +10,17 @@ jobs:
         run: eco "Hello World"
       - name: echo working
         run: echo "working"
-
+      - name: python command
+        run: |
+          import platfrom
+          print(platform.processor())
+        shell: python
+  run-windows-commands:
+    runs-on: windows-latest
+    needs: ["run-shell-command"]
+    steps:
+      - name: Directory Powershell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash
